@@ -1,19 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Temperature Converter</title>
-</head>
-<body>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Temperature Converter</title>
+    <style>
+        /* Add CSS rules here */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f5f5f5;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        input[type="text"] {
+            width: 300px;
+            height: 35px;
+            padding: 5px;
+            font-size: 1.2rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        button {
+            width: 300px;
+            height: 45px;
+            margin-top: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #result {
+            margin-top: 20px;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+</style>
+    </head>
+    <body>
 
-<label for="celsiusInput">Enter Temperature in Celsius:</label>
-<input type="text" id="celsiusInput">
-<button onclick="convertCelsiusToFahrenheit()">Convert to Fahrenheit</button><br><br>
+        <label for="celsiusInput">Enter Temperature in Celsius:</label>
+        <input type="text" id="celsiusInput">
+        <button onclick="convertCelsiusToFahrenheit()">Convert to
+            Fahrenheit</button><br><br>
 
-<p id="result"></p>
+        <p id="result"></p>
 
-<script src="./c-to-f.js"></script>
+        <script src="./c-to-f.js"></script>
 
-</body>
+    </body>
 </html>

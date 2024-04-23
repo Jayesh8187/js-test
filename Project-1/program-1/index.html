@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Pattern</title>
+        <style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    .pattern {
+        font-size: 24px;
+        line-height: 1.5;
+    }
+</style>
+    </head>
+    <body>
+        <div class="pattern" id="pattern"></div>
+
+    <script>
+        function printPattern(rows) {
+            for (let i = 1; i <= rows; i++) {
+                let row = "";
+                for (let j = 1; j <= rows; j++) {
+                    if (j === i || j === rows - i + 1) {
+                        row += "*\t";
+                    } else {
+                        row += "\t";
+                    }
+                }
+                console.log(row);
+            }
+        }
+        
+        printPattern(5);          
+        
+    </script>
+    </body>
+</html>
