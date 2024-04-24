@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cars Array and Conditions</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<div id="output"></div>
+
+<script>
+    // Array of car objects
+    const carsArray = [
+        { brand: 'Toyota', mileage: 25, speed: 120 },
+        { brand: 'Honda', mileage: 30, speed: 110 },
+        { brand: 'Ford', mileage: 20, speed: 140 },
+        { brand: 'Chevrolet', mileage: 35, speed: 100 },
+        { brand: 'BMW', mileage: 15, speed: 160 }
+    ];
+
+    // Display all the car details before the loop
+    for (let i = 0; i < carsArray.length; i++) {
+        const car = carsArray[i];
+        document.getElementById('output').innerHTML += `<p>${car.brand} - Mileage: ${car.mileage}, Speed: ${car.speed}</p>`;
+    }
+
+    document.getElementById('output').innerHTML += `<h2>if mileage is < 20 then low ,>= 20 and < 30 medium other waise high</h2><h2>if speed is < 100 then low ,>= 100 and < 150 medium other waise high</h2><br>`
+
+    // Loop through the array and perform conditional statements
+    for (let i = 0; i < carsArray.length; i++) {
+        const car = carsArray[i];
+        let conditionResult;
+
+        // Perform conditional statements based on mileage
+        if (car.mileage < 20) {
+            conditionResult = 'Low mileage';
+        } else if (car.mileage >= 20 && car.mileage < 30) {
+            conditionResult = 'Medium mileage';
+        } else {
+            conditionResult = 'High mileage';
+        }
+
+        // Display the result of the mileage condition
+        document.getElementById('output').innerHTML += `<p>${car.brand} - Mileage Condition: ${conditionResult}</p>`;
+
+        // Perform conditional statements based on speed
+        if (car.speed < 100) {
+            conditionResult = 'Low speed';
+        } else if (car.speed >= 100 && car.speed < 150) {
+            conditionResult = 'Medium speed';
+        } else {
+            conditionResult = 'High speed';
+        }
+
+        // Display the result of the speed condition
+        document.getElementById('output').innerHTML += `<p>${car.brand} - Speed Condition: ${conditionResult}</p><br>`;
+    }
+</script>
+</body>
+</html>
