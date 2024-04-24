@@ -1,40 +1,40 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Pattern</title>
-        <style>
-    body {
-        font-family: Arial, sans-serif;
-        text-align: center;
-    }
-    .pattern {
-        font-size: 24px;
-        line-height: 1.5;
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pattern Display</title>
+<style>
+    #pattern {
+        font-family: monospace;
+        white-space: pre;
     }
 </style>
-    </head>
-    <body>
-        <div class="pattern" id="pattern"></div>
+</head>
+<body>
 
-    <script>
-        function printPattern(rows) {
-            for (let i = 1; i <= rows; i++) {
-                let row = "";
-                for (let j = 1; j <= rows; j++) {
-                    if (j === i || j === rows - i + 1) {
-                        row += "*\t";
-                    } else {
-                        row += "\t";
-                    }
-                }
-                console.log(row);
+<pre id="pattern"></pre>
+
+<script>
+function printPattern() {
+    const size = 3;
+    let pattern = '';
+    
+    for (let i = 0; i < size * 2 - 1; i++) {
+        for (let j = 0; j < size * 2 - 1; j++) {
+            if (j === i || j === size - 1 || j === size * 2 - 2 - i) {
+                pattern += '*';
+            } else {
+                pattern += ' ';
             }
         }
-        
-        printPattern(5);          
-        
-    </script>
-    </body>
+        pattern += '\n';
+    }
+    return pattern;
+}
+
+document.getElementById('pattern').innerHTML = printPattern();
+</script>
+
+</body>
 </html>
