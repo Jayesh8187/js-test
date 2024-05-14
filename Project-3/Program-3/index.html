@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Unit Converter</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Unit Converter</h1>
+<form id="converterForm">
+    <label for="conversionType">Select Conversion Type:</label>
+    <select id="conversionType">
+        <option value="meterToFoot">Meter to Foot</option>
+        <option value="celsiusToFahrenheit">Celsius to Fahrenheit</option>
+        <option value="dollarToRupees">Dollar to Rupees</option>
+    </select><br><br>
+    <label for="value">Enter Value:</label>
+    <input type="number" id="value" required><br><br>
+    <button type="button" onclick="convert()">Convert</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+// Arrow function to convert meter to foot
+const meterToFoot = meter => meter * 3.28084;
+
+// Regular named function to convert Celsius to Fahrenheit
+function celsiusToFahrenheit(celsius) {
+    return (celsius * 9/5) + 32;
+}
+
+// Anonymous function assigned to a variable to convert Dollar to Rupees
+const dollarToRupees = function(dollar) {
+    return dollar * 75; // Assuming 1 Dollar = 75 Rupees
+};
+
+// Function to perform conversion based on user selection
+const convert = () => {
+    const conversionType = document.getElementById("conversionType").value;
+    const value = parseFloat(document.getElementById("value").value);
+    let result;
+
+    switch (conversionType) {
+        case "meterToFoot":
+            result = meterToFoot(value);
+            document.getElementById("result").innerHTML = `Result: ${value} meters = ${result.toFixed(2)} feet`;
+            break;
+        case "celsiusToFahrenheit":
+            result = celsiusToFahrenheit(value);
+            document.getElementById("result").innerHTML = `Result: ${value} Celsius = ${result.toFixed(2)} Fahrenheit`;
+            break;
+        case "dollarToRupees":
+            result = dollarToRupees(value);
+            document.getElementById("result").innerHTML = `Result: ${value} Dollar = ${result.toFixed(2)} Rupees`;
+            break;
+        default:
+            document.getElementById("result").innerHTML = "Invalid conversion type";
+    }
+};
+</script>
+</body>
+</html>

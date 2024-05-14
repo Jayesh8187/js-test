@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Area Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+</style>
+</head>
+<body>
+<h1>Area Calculator</h1>
+<form id="areaForm">
+    <label for="shape">Select Shape:</label>
+    <select id="shape">
+        <option value="rectangle">Rectangle</option>
+        <option value="triangle">Triangle</option>
+        <option value="circle">Circle</option>
+    </select><br><br>
+    <h4>fill the both if you need area of rectangle and triangle and fill only one if you need area of circle.</h4>
+    <p>rectangle area : length * width</p>
+    <p>triangle area : base * height</p>
+    <p>circle area : radius * radius * pi</p>
+    <div id="inputFields">
+        <label for="side1">Length or Base or Radius</label>
+        <input type="number" id="side1" required><br><br>
+        <label for="side2">Width or Height</label>
+        <input type="number" id="side2" required><br><br>
+    </div>
+    <button type="button" onclick="calculateArea()">Calculate Area</button>
+</form>
+
+<div id="result"></div>
+
+<script>
+// Function to calculate area of a rectangle
+function calculateRectangleArea(length, width) {
+    return length * width;
+}
+
+// Function to calculate area of a triangle
+function calculateTriangleArea(base, height) {
+    return 0.5 * base * height;
+}
+
+// Function to calculate area of a circle
+function calculateCircleArea(radius) {
+    return Math.PI * radius * radius;
+}
+
+// Function to read user input and calculate area
+function calculateArea() {
+    const shape = document.getElementById("shape").value;
+    const side1 = parseFloat(document.getElementById("side1").value);
+    const side2 = parseFloat(document.getElementById("side2").value);
+
+    let area;
+    if (shape === "rectangle") {
+        area = calculateRectangleArea(side1, side2);
+    } else if (shape === "triangle") {
+        area = calculateTriangleArea(side1, side2);
+    } else if (shape === "circle") {
+        area = calculateCircleArea(side1);
+    }
+
+    // Display result
+    document.getElementById("result").innerHTML = `Area: ${area.toFixed(2)}`;
+}
+</script>
+</body>
+</html>
